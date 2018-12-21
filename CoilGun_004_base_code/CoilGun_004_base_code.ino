@@ -1,38 +1,42 @@
 /*
- Name:		CoilGun_004_base_code.ino
- Created:	16.12.2018 15:01:15
- Author:	luky
+  Name:		CoilGun_004_base_code.ino
+  Created:	16.12.2018 15:01:15
+  Author:	luky
 */
 
-#include "Library1.h"
-#include "src\LocalHeader1.h"
 
-Library1Class lib1 = Library1Class();
+#include "CoilGunBase.h"
 
-// define prototypes for any methods that use 'user types' created in .ino code or use cpp/h files
-//
-void test(Library1Class _lib1);
+Base base = Base();
 
-
-// methods below here
-//
-
-// the setup function runs once when you press reset or power the board
-void setup() {
-	Serial.begin(115200);
-}
-
-// the loop function runs over and over again until power down or reset
-void loop() {
-  
-	test(lib1);
-
-	delay(100);
-}
-
-//This method demonstrates 1) using a library 2) using user types as function params
-void test(Library1Class _lib1)
+void setup()
 {
-	_lib1.hello("Hello Visual Micro");
+  base.Init();
 }
+
+void loop()
+{
+
+}
+
+#ifdef OLD_CG
+
+ISR(PCINT1_vect)
+{
+	base.SensorsInterrupt();
+}
+
+ISR(PCINT0_vect)
+{
+	base.ButtonInterrupt();
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+	base.Timer_1_Interrupt();
+}
+
+
+#endif // OLD_CG
+
 

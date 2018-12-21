@@ -70,10 +70,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\CoilGun_004_base_code;F:\Program Files\Arduino\libraries;F:\Program Files\Arduino\hardware\arduino\avr\libraries;F:\Programming\Arduino\Arduino_Projects\libraries;F:\Program Files\Arduino\hardware\arduino\avr\cores\arduino;F:\Program Files\Arduino\hardware\arduino\avr\variants\eightanaloginputs;F:\Program Files\Arduino\hardware\tools\avr\avr\include;F:\Program Files\Arduino\hardware\tools\avr\avr\include\avr;F:\Program Files\Arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include;F:\Program Files\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;F:\Program Files\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.CoilGun_004_base_code.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10805;ARDUINO_AVR_NANO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -100,16 +100,6 @@
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="_micro-api\libraries\Library1\src\Foo\Baa.cpp">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_micro-api\libraries\Library1\src\Foo\Baa.h">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="_micro-api\libraries\Library1\library.properties">
     </None>
   </ItemGroup>
@@ -126,24 +116,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="_micro-api\libraries\Library1\src\Library1.cpp">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_micro-api\libraries\Library1\src\Library1.h">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\LocalHeader1.h">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="CoilGun_004_base_code.ino">
       <FileType>CppCode</FileType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoilGunBase.h" />
+    <ClInclude Include="CoilGunCoils.h" />
+    <ClInclude Include="CoilGunConfiguration.h" />
+    <ClInclude Include="CoilGunPins.h" />
+    <ClInclude Include="CoilGunSensors.h" />
+    <ClInclude Include="__vm\.CoilGun_004_base_code.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CoilGunBase.cpp" />
+    <ClCompile Include="CoilGunCoils.cpp" />
+    <ClCompile Include="CoilGunSensors.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

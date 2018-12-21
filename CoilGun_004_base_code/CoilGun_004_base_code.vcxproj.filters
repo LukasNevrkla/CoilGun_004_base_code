@@ -16,12 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CoilGun_004_base_code.ino" />
-    <None Include="_micro-api\libraries\Library1\src\Foo\Baa.cpp">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="_micro-api\libraries\Library1\src\Foo\Baa.h">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="_micro-api\libraries\Library1\library.properties">
       <Filter>Resource Files</Filter>
     </None>
@@ -34,14 +28,36 @@
     <None Include="sharing project code.txt">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="_micro-api\libraries\Library1\src\Library1.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.CoilGun_004_base_code.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunSensors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunPins.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunCoils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunConfiguration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CoilGunSensors.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="_micro-api\libraries\Library1\src\Library1.h">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="src\LocalHeader1.h">
-      <Filter>Header Files</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="CoilGunBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoilGunCoils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
