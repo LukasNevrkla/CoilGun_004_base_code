@@ -18,7 +18,7 @@ void Coils::TurnCoil(byte _stage)
 		TurnOffCoils();
 /*
    Serial.print("Turning on ");
-   Serial.print(_stage);
+   Serial.print(CoilsSeq[_stage]);
    Serial.println(" coil.");*/
 }
 

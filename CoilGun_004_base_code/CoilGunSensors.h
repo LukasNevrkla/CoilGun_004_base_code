@@ -19,9 +19,11 @@ public:
 private:
 	unsigned volatile long t = 0;
 	unsigned volatile long *allTimes = new unsigned volatile long[MESUREMENTS];
-	unsigned volatile long *allSpeeds = new unsigned volatile long[MESUREMENTS];
+	volatile double *resultTimes = new volatile double[MESUREMENTS];
+	volatile double *allSpeeds = new volatile double[sizeof(SpeedCalculation) / sizeof(SpeedCalculation[0])];
 
 	void StopInterrupt();
+	void CalculateTimes();
 	void CalculateSpeeds();
 };
 

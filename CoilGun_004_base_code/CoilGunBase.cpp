@@ -25,6 +25,18 @@ void Base::Init()
 		stage = 1;	//Bcs there will not be stage++; on button click
 	#endif // START_BY_BUTTON
 
+	/*	//Not finished yet
+  delay (50);
+   
+	for (int i = 0; i < SENSORS_CNT; i++)
+	{
+		if (digitalRead(SENSOR[i])==1)
+		{
+		  Serial.print("Some error on sensor: ");
+		  Serial.print(digitalRead(SENSOR[i]));
+		  Serial.println(i);
+		}
+  }*/
 
 	Serial.println("Complete");
 }
@@ -48,33 +60,44 @@ void Base::ButtonInterrupt()
 
 void Base::SensorsInterrupt()
 {
-	cli();
+	//cli();
 
-	if (stage< COILS_CNT)
-		coilsClass->TurnCoil(stage);
-  else
-    coilsClass->TurnOffCoils();
+	#if COILS_ON
+		if (stage< COILS_CNT)
+			coilsClass->TurnCoil(stage);
+		else
+			coilsClass->TurnOffCoils();
+	#endif //COILS_ON
 
 	sensorsClass->HandleInterrupt(stage);
+
+	#ifdef DETECTION_END
+		if (SensorSeq[stage] == DETECTION_END)
+			Stop();
+	#endif // DETECTION_END
+ 
 	stage++;
 
 	  if (stage > DETECTION_CNT)
-	  {
-		coilsClass->TurnOffCoils();
-	    #if !START_BY_BUTTON
-			stage = 1;
-	    #endif 
-		sensorsClass->Stop();
-		inProgress=false;
-	  }
-   sei();
+		  Stop();
+
+   //sei();
+}
+
+void Base::Stop()
+{
+	coilsClass->TurnOffCoils();
+	#if !START_BY_BUTTON
+		stage = 1;
+	#endif 
+	sensorsClass->Stop();
+	inProgress = false;
 }
 
 
 void Base::Timer_1_Interrupt()
 {
   coilsClass->TurnOffCoils();
-  //sensorsClass->Stop();
   inProgress = false;
   TCCR1B &= ~((1 << CS10) | (1 << CS11) | (1 << CS12)); //Stop timer
 }
@@ -85,8 +108,8 @@ void Base :: PinsInit()
 	{
 		pinMode(SENSOR[i], INPUT_PULLUP);
 	}
- for (byte i=0 ; i< ALL_COILS_CNT ; i++)
- {
+	 for (byte i=0 ; i< ALL_COILS_CNT ; i++)
+	 {
 		pinMode(COIL[i], OUTPUT);
 		digitalWrite(COIL[i], LOW);
 	 }	

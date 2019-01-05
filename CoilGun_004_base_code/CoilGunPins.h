@@ -12,7 +12,7 @@
 #define BUTTON_PIN PB3
 
 const byte SENSOR[] = { PC0, PC1, PC2,PC3,PC4,PC5 };      
-const byte COIL[] = { PD2, PD3, PD2, PD5, PD6, PD7 };
+const byte COIL[] = { PD2, PD3, PD4, PD5, PD6, PD7 };
 
 #endif // OLD_CG
 

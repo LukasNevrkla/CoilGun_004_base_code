@@ -24,6 +24,7 @@ private:
 	volatile bool inProgress = false;
 	volatile byte stage = 0;
 
+	void Stop();
 	void PinsInit();
 	void InterruptsInit();
 	void SetTimer(int time);
