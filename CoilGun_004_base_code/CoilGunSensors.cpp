@@ -7,6 +7,17 @@ Sensors::Sensors(){}
 
 void Sensors::Init()
 {
+  #ifdef OLD_CG
+    for (byte i=0;i<SENSORS_CNT;i++)
+    {
+      if ((PINC&(1<<i))!=0)
+      {
+        Serial.print("Error on sensor: ");
+        Serial.println(i);
+      }
+  }
+  #endif
+  
 	#if !START_BY_BUTTON
 		SetInterrupt(SensorSeq[0]);
 	#endif // !START_BY_BUTTON

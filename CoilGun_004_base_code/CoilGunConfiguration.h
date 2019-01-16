@@ -3,16 +3,16 @@
 #define ALL_SENSORS_CNT 6
 #define ALL_COILS_CNT 6
 
-#define SENSORS_CNT 6
-#define COILS_CNT 6
+#define SENSORS_CNT 2
+#define COILS_CNT 1
 
 #define MESUREMENT_ON true
-#define COILS_ON false  
+#define COILS_ON true  
 
 #define TWO_DETECTS_PER_SENSOR true
-#define START_BY_BUTTON false	//Else by first sensor detect
+#define START_BY_BUTTON true	//Else by first sensor detect
 
-#define CUT_OFF_TIME 300
+#define CUT_OFF_TIME 200
 
 #define PR_LEN 6.8	//PROJECTILE_LENGTH
 
@@ -26,30 +26,30 @@
          //Kdyz je senzor pred 1. civkou (hrebik je v senzoru), nepricte se state... funguje to tatalne de**ne, ..I_1 I_1 I_3 I_4
                    
 const byte CoilsSeq[DETECTION_CNT] = { 
-	4,COILS_OFF,
+	0,COILS_OFF,
 	COILS_OFF,COILS_OFF,
-	COILS_OFF,COILS_OFF,
+	/*COILS_OFF,COILS_OFF,
 	COILS_OFF,COILS_OFF,
 	COILS_OFF,COILS_OFF, 
-  COILS_OFF,COILS_OFF 
+  COILS_OFF,COILS_OFF */
 };	//Define wich and when should be coils turned on
 
 const byte SensorSeq[DETECTION_CNT] = { 
 	0,0,
-	1,1,
-  2,2,
+	1,1,/*
+	2,2,
 	3,3,
 	4,4,
-  5,5
+	5,5*/
 	//DETECTION_END,DETECTION_END
 };	//Define wich sequention in which will be sensors trigger
 
 const double SpeedCalculation[][3] = {
-	{0,2,7},
-	{2,4,7},
-	{4,6,7},
+	{0,1,PR_LEN},
+	{1,2,10},
+	{2,3,PR_LEN},/*
   {6,8,7},
-  {8,10,7}
+  {8,10,7}*/
 };	//Define between wich detection should be speed calculated (3. number is distance [cm])
 
 const byte AccelerationCalculation[][2] = {

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms;properties;txt;csv;json;xml</Extensions>
     </Filter>
+    <Filter Include="ConfigFiles">
+      <UniqueIdentifier>{6c7be4e3-5771-4c3a-b80d-d79e20cb4513}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="CoilGun_004_base_code.ino" />
@@ -36,17 +39,17 @@
     <ClInclude Include="CoilGunSensors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CoilGunBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CoilGunPins.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CoilGunCoils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CoilGunConfiguration.h">
+    <ClInclude Include="CoilGunBase.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunConfiguration.h">
+      <Filter>ConfigFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="CoilGunPins.h">
+      <Filter>ConfigFiles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
