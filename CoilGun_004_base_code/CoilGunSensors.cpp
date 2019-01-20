@@ -25,8 +25,8 @@ void Sensors::Init()
 
 void Sensors::HandleInterrupt(byte _stage)
 {
-	//Serial.print("I_");
-  //Serial.println(_stage);
+	/*Serial.print("I_");
+  Serial.println(_stage);*/
 
 	#if !START_BY_BUTTON
 		if (_stage == 1)
@@ -72,6 +72,7 @@ void Sensors::CalculateTimes()
 	for (int i = 0; i < MESUREMENTS; i++)
 	{
 		double time;
+    //Serial.println(allTimes[i],9);
   
 		time = (double)(allTimes[i] - t);
 		time /= 1000000.0;	//To seconds

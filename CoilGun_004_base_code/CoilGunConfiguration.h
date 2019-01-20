@@ -12,7 +12,7 @@
 #define TWO_DETECTS_PER_SENSOR true
 #define START_BY_BUTTON true	//Else by first sensor detect
 
-#define CUT_OFF_TIME 200
+#define CUT_OFF_TIME 100
 
 #define PR_LEN 6.8	//PROJECTILE_LENGTH
 
@@ -28,7 +28,8 @@
 const byte CoilsSeq[DETECTION_CNT] = { 
 	0,COILS_OFF,
 	COILS_OFF,COILS_OFF,
-	/*COILS_OFF,COILS_OFF,
+  /*
+	COILS_OFF,COILS_OFF,
 	COILS_OFF,COILS_OFF,
 	COILS_OFF,COILS_OFF, 
   COILS_OFF,COILS_OFF */
@@ -36,7 +37,8 @@ const byte CoilsSeq[DETECTION_CNT] = {
 
 const byte SensorSeq[DETECTION_CNT] = { 
 	0,0,
-	1,1,/*
+	1,1,
+  /*
 	2,2,
 	3,3,
 	4,4,
@@ -46,7 +48,7 @@ const byte SensorSeq[DETECTION_CNT] = {
 
 const double SpeedCalculation[][3] = {
 	{0,1,PR_LEN},
-	{1,2,10},
+	//{1,2,10},
 	{2,3,PR_LEN},/*
   {6,8,7},
   {8,10,7}*/

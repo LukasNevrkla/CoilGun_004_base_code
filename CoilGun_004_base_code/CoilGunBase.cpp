@@ -22,7 +22,7 @@ void Base::Init()
 	#if START_BY_BUTTON
 		stage = 0;
 	#else
-		stage = 1;	//Bcs there will not be stage++; on button click
+		stage = 1;	//Bcs there will be no stage++; on button click
 	#endif // START_BY_BUTTON
 
 	/*	//Not finished yet
@@ -61,6 +61,7 @@ void Base::ButtonInterrupt()
 void Base::SensorsInterrupt()
 {
 	//cli();
+  sensorsClass->HandleInterrupt(stage);
 
 	#if COILS_ON
 		if (stage< COILS_CNT)
@@ -69,7 +70,7 @@ void Base::SensorsInterrupt()
 			coilsClass->TurnOffCoils();
 	#endif //COILS_ON
 
-	sensorsClass->HandleInterrupt(stage);
+	//sensorsClass->HandleInterrupt(stage);
 
 	#ifdef DETECTION_END
 		if (SensorSeq[stage] == DETECTION_END)
